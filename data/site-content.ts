@@ -71,9 +71,14 @@ export const siteContent = {
     ] satisfies EditorialImage[],
   },
   editorialFeature: {
+    heading: "In a Brighton State of Mind.",
+    video: {
+      src: "/videos/brighton-tablet.mp4",
+      type: "video/mp4",
+    },
     image: {
       src: "/images/editorial-wide.svg",
-      alt: "Wide monochrome Brighton fashion campaign placeholder",
+      alt: "Brighton fashion campaign",
       width: 1920,
       height: 1200,
     },

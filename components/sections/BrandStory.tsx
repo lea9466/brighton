@@ -39,7 +39,7 @@ export function BrandStory() {
             isVisible ? "is-visible" : ""
           }`}
         >
-          <div className="relative aspect-[4/5] overflow-hidden rounded-lg shadow-[0_24px_70px_rgba(44,39,31,0.12)]">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-lg shadow-[0_24px_70px_rgba(0,0,0,0.3)]">
             <Image
               src={story.image.src}
               alt={story.image.alt}
@@ -55,13 +55,13 @@ export function BrandStory() {
             isVisible ? "is-visible" : ""
           }`}
         >
-          <p className="text-[0.6rem] font-medium uppercase tracking-[0.34em] text-[#817b72]">
+          <p className="text-[0.6rem] font-medium uppercase tracking-[0.34em] text-stone">
             {story.eyebrow}
           </p>
-          <h2 className="mt-7 font-display text-[clamp(2.9rem,6vw,5.6rem)] leading-[0.95] tracking-[-0.03em] text-[#1a1a1a]">
+          <h2 className="mt-7 font-display text-[clamp(2.9rem,6vw,5.6rem)] leading-[0.95] tracking-[-0.03em] text-ivory">
             {story.title}
           </h2>
-          <div className="mt-10 space-y-6 text-[0.97rem] leading-[1.8] tracking-[0.005em] text-[#595650] sm:text-base">
+          <div className="mt-10 space-y-6 text-[0.97rem] leading-[1.8] tracking-[0.005em] text-mist sm:text-base">
             {story.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
