@@ -10,13 +10,11 @@ export type EditorialImage = {
 export const siteContent = {
   brand: {
     name: "BRIGHTON",
-    tagline: "Wear the World.",
-    subline: "Global Chic, Every Day",
   },
   navigation: [
-    { label: "Brand", href: "#brand" },
-    { label: "Collection", href: "#collection" },
     { label: "Story", href: "#story" },
+    { label: "Collection", href: "#collection" },
+    { label: "Campaign", href: "#campaign" },
     { label: "Contact", href: "#contact" },
   ],
   hero: {
@@ -39,11 +37,6 @@ export const siteContent = {
       width: 1920,
       height: 1200,
     },
-  },
-  introduction: {
-    eyebrow: "The Brand",
-    title: "An international point of view.",
-    body: "BRIGHTON is more than a fashion brand. Inspired by global style, each piece brings together modern design, refined details and effortless elegance.",
   },
   collection: {
     eyebrow: "Featured Collection",
@@ -84,20 +77,14 @@ export const siteContent = {
       width: 1920,
       height: 1200,
     },
-    caption: "Brighton / England",
   },
   story: {
     eyebrow: "Our Story",
     title: "Designed for Everyday Elegance.",
     paragraphs: [
       "Inspired by the character of Brighton, England, BRIGHTON brings a distinctly international perspective to modern style.",
-      "Every piece is considered with purpose, balancing refined details, confident silhouettes and an effortless sense of ease.",
-      "Our crown represents excellence, while the flower at its heart reflects grace, beauty and a spirit designed to endure.",
+      "Each piece balances considered detail, confident form and an effortless sense of ease.",
     ],
-    cta: {
-      label: "Discover the Collection",
-      href: "#collection",
-    },
     image: {
       src: "/images/brighton-store.png",
       alt: "The Brighton fashion store exterior",
@@ -107,7 +94,7 @@ export const siteContent = {
   },
   gallery: {
     eyebrow: "Campaign",
-    title: "In a Brighton State of Mind",
+    title: "The Campaign.",
     images: [
       {
         src: "/images/featured-sweatshirt.png",
@@ -149,17 +136,15 @@ export const siteContent = {
   },
   statement: {
     text: "Fashion is an international language.",
-    signature: "BRIGHTON. Wear the World.",
+    signature: "BRIGHTON / ENGLAND",
   },
   contact: {
     eyebrow: "Contact",
-    title: "Get in Touch",
-    intro:
-      "For brand enquiries, collaborations and selected retail opportunities, we would love to hear from you.",
+    title: "Enquiries",
+    intro: "For collaborations, retail and brand enquiries.",
     fields: {
       name: "Name",
       email: "Email",
-      phone: "Phone",
       message: "Message",
     },
     validation: {

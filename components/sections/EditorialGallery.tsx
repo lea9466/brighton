@@ -21,7 +21,7 @@ export function EditorialGallery() {
           observer.disconnect();
         }
       },
-      { threshold: 0.08 },
+      { threshold: 0.15 },
     );
 
     observer.observe(section);
@@ -29,7 +29,7 @@ export function EditorialGallery() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="gallery-section">
+    <section ref={sectionRef} id="campaign" className="gallery-section scroll-mt-20">
       <div className="site-shell">
         <SectionHeading
           eyebrow={gallery.eyebrow}
@@ -52,7 +52,7 @@ export function EditorialGallery() {
                   width={image.width}
                   height={image.height}
                   sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1023px) 50vw, 33vw"
-                  className="h-auto w-full object-cover transition-[filter,transform] duration-500 ease-out group-hover:scale-[1.03] group-hover:brightness-110"
+                  className="h-auto w-full object-cover transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.025] group-hover:brightness-105"
                 />
               </div>
             </figure>

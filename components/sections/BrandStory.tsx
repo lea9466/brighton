@@ -20,7 +20,7 @@ export function BrandStory() {
           observer.disconnect();
         }
       },
-      { threshold: 0.18 },
+      { threshold: 0.15 },
     );
 
     observer.observe(section);
@@ -45,7 +45,7 @@ export function BrandStory() {
               alt={story.image.alt}
               fill
               sizes="(max-width: 1024px) calc(100vw - 40px), 560px"
-              className="object-cover object-[center_48%] transition-transform duration-1000 ease-out hover:scale-[1.02]"
+              className="object-cover object-[center_48%] transition-transform duration-700 ease-out hover:scale-[1.025]"
             />
           </div>
         </div>
@@ -58,7 +58,7 @@ export function BrandStory() {
           <p className="text-[0.6rem] font-medium uppercase tracking-[0.34em] text-[#817b72]">
             {story.eyebrow}
           </p>
-          <h2 className="mt-7 font-display text-[clamp(3rem,5.5vw,5.25rem)] leading-[0.95] tracking-[-0.03em] text-[#1a1a1a]">
+          <h2 className="mt-7 font-display text-[clamp(2.9rem,6vw,5.6rem)] leading-[0.95] tracking-[-0.03em] text-[#1a1a1a]">
             {story.title}
           </h2>
           <div className="mt-10 space-y-6 text-[0.97rem] leading-[1.8] tracking-[0.005em] text-[#595650] sm:text-base">
@@ -66,12 +66,6 @@ export function BrandStory() {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-          <a href={story.cta.href} className="story-cta mt-12">
-            <span>{story.cta.label}</span>
-            <span className="story-cta-arrow" aria-hidden="true">
-              →
-            </span>
-          </a>
         </div>
       </div>
     </section>

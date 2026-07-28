@@ -4,24 +4,18 @@ import { siteContent } from "@/data/site-content";
 export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-ink">
-      <div className="site-shell py-10 sm:py-14">
-        <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
+      <div className="site-shell py-9 sm:py-11">
+        <div className="flex flex-col gap-7 sm:flex-row sm:items-center sm:justify-between">
           <a href="#top" aria-label="Brighton home">
-            <Logo />
+            <Logo className="text-lg" />
           </a>
-          <nav className="flex flex-wrap gap-x-6 gap-y-3" aria-label="Footer navigation">
-            {siteContent.navigation.map((item) => (
-              <a key={item.href} href={item.href} className="nav-link">
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-        <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-6 text-[0.6rem] uppercase tracking-[0.2em] text-stone sm:flex-row sm:items-center sm:justify-between">
-          <p>
+          <p className="text-[0.56rem] uppercase tracking-[0.18em] text-stone">
             © {new Date().getFullYear()} {siteContent.footer.copyright}
           </p>
-          <a href="#top" className="transition-colors hover:text-ivory">
+          <a
+            href="#top"
+            className="text-[0.56rem] uppercase tracking-[0.18em] text-stone transition-colors hover:text-ivory"
+          >
             {siteContent.footer.backToTop} ↑
           </a>
         </div>

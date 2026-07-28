@@ -1,4 +1,3 @@
-import { BrandIntroduction } from "@/components/sections/BrandIntroduction";
 import { BrandStatement } from "@/components/sections/BrandStatement";
 import { BrandStory } from "@/components/sections/BrandStory";
 import { Contact } from "@/components/sections/Contact";
@@ -17,7 +16,6 @@ export default function Home() {
         <Hero />
         <BrandStory />
         <FeaturedCollection />
-        <BrandIntroduction />
         <EditorialFeature />
         <EditorialGallery />
         <BrandStatement />

@@ -4,9 +4,9 @@ export function BrandStatement() {
   const { statement } = siteContent;
 
   return (
-    <section className="site-shell flex min-h-[92svh] flex-col items-center justify-center py-32 text-center">
+    <section className="site-shell flex flex-col items-center justify-center py-36 text-center sm:py-44 lg:py-52">
       <span className="mb-12 h-1.5 w-1.5 bg-accent" aria-hidden="true" />
-      <blockquote className="max-w-[72rem] font-display text-[clamp(3.2rem,7.8vw,7.2rem)] leading-[0.92] tracking-[-0.035em] text-ivory">
+      <blockquote className="max-w-[64rem] font-display text-[clamp(3rem,7vw,6.2rem)] leading-[0.94] tracking-[-0.03em] text-ivory">
         “{statement.text}”
       </blockquote>
       <p className="mt-12 text-[0.56rem] uppercase tracking-[0.34em] text-stone sm:text-[0.62rem]">

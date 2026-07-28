@@ -14,9 +14,6 @@ export function EditorialFeature() {
         className="editorial-zoom object-cover object-[62%_center] sm:object-center"
       />
       <div className="absolute inset-0 bg-black/15" />
-      <p className="absolute bottom-7 left-5 border-l border-accent pl-3 text-[0.55rem] uppercase tracking-[0.3em] text-white/70 sm:bottom-10 sm:left-10">
-        {editorialFeature.caption}
-      </p>
     </section>
   );
 }

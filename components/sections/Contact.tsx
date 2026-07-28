@@ -34,7 +34,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="section-space scroll-mt-20 border-t border-white/10 bg-charcoal lg:flex lg:min-h-[82vh] lg:items-center"
+      className="scroll-mt-20 border-t border-white/10 bg-charcoal py-28 sm:py-36 lg:py-40"
     >
       <div className="site-shell grid gap-20 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
@@ -76,8 +76,6 @@ export function Contact() {
             required
             error={errors.email}
           />
-          <FormField id="phone" label={contact.fields.phone} type="tel" />
-          <div className="hidden sm:block" aria-hidden="true" />
           <div className="sm:col-span-2">
             <label className="form-label" htmlFor="message">
               {contact.fields.message}
