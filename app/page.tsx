@@ -1,5 +1,6 @@
 import { BrandStatement } from "@/components/sections/BrandStatement";
 import { BrandStory } from "@/components/sections/BrandStory";
+import { BrandIntro } from "@/components/BrandIntro";
 import { Contact } from "@/components/sections/Contact";
 import { EditorialFeature } from "@/components/sections/EditorialFeature";
 import { EditorialGallery } from "@/components/sections/EditorialGallery";
@@ -12,6 +13,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 export default function Home() {
   return (
     <>
+      <BrandIntro />
       <ScrollReveal />
       <Header />
       <main>

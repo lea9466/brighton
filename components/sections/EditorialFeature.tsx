@@ -148,7 +148,11 @@ export function EditorialFeature() {
             isVisible ? "is-visible" : ""
           }`}
         >
-          <h2 className="max-w-[28rem] font-display text-[clamp(2.7rem,5vw,4.8rem)] leading-[0.96] tracking-[-0.025em] text-ivory">
+          <h2
+            data-reveal
+            data-reveal-delay="1"
+            className="max-w-[28rem] font-display text-[clamp(2.7rem,5vw,4.8rem)] leading-[0.96] tracking-[-0.025em] text-ivory"
+          >
             {editorialFeature.heading}
           </h2>
         </div>

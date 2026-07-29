@@ -45,14 +45,17 @@ export function EditorialGallery() {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="group overflow-hidden rounded-lg bg-[#181818]">
+              <div
+                data-parallax="8"
+                className="editorial-reveal group overflow-hidden rounded-lg bg-[#181818] transition-shadow duration-700 hover:shadow-[0_28px_70px_rgba(0,0,0,0.38)]"
+              >
                 <Image
                   src={image.src}
                   alt={image.alt}
                   width={image.width}
                   height={image.height}
                   sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1023px) 50vw, 33vw"
-                  className="h-auto w-full object-cover transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.025] group-hover:brightness-105"
+                  className="h-auto w-full object-cover saturate-[0.92] transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.035] group-hover:brightness-105 group-hover:saturate-105"
                 />
               </div>
             </figure>

@@ -19,6 +19,7 @@ export function Footer() {
           <a
             data-reveal="left"
             data-reveal-delay="2"
+            data-magnetic
             href="#top"
             className="text-[0.56rem] uppercase tracking-[0.18em] text-stone transition-colors hover:text-ivory"
           >
