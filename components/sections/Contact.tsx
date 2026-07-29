@@ -41,10 +41,18 @@ export function Contact() {
       <div className="site-shell grid gap-20 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
           <SectionHeading eyebrow={contact.eyebrow} title={contact.title} />
-          <p className="mt-10 max-w-sm text-base leading-8 text-stone">
+          <p
+            data-reveal
+            data-reveal-delay="1"
+            className="mt-10 max-w-sm text-base leading-8 text-stone"
+          >
             {contact.intro}
           </p>
-          <div className="mt-12 flex gap-7">
+          <div
+            data-reveal
+            data-reveal-delay="2"
+            className="mt-12 flex gap-7"
+          >
             {contact.socialLinks.map((link) => (
               <a
                 key={link.label}

@@ -195,11 +195,58 @@ button {
 }
 
 .hero-reveal {
-  animation: hero-reveal 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: hero-reveal 1.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.header-reveal {
+  animation: header-reveal 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .hero-delay-cta {
   animation-delay: 300ms;
+}
+
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  filter: blur(0.35rem);
+  transform: translate3d(0, 2.25rem, 0);
+  transition:
+    opacity 950ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 950ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 950ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, filter, transform;
+}
+
+.reveal-ready [data-reveal="left"] {
+  transform: translate3d(-2.25rem, 0, 0);
+}
+
+.reveal-ready [data-reveal="right"] {
+  transform: translate3d(2.25rem, 0, 0);
+}
+
+.reveal-ready [data-reveal="scale"] {
+  transform: scale(0.94);
+}
+
+.reveal-ready [data-reveal].is-revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: none;
+  will-change: auto;
+}
+
+.reveal-ready [data-reveal-delay="1"] {
+  --reveal-delay: 100ms;
+}
+
+.reveal-ready [data-reveal-delay="2"] {
+  --reveal-delay: 200ms;
+}
+
+.reveal-ready [data-reveal-delay="3"] {
+  --reveal-delay: 300ms;
 }
 
 .hero-overlay {
@@ -247,10 +294,12 @@ button {
 .story-media,
 .story-copy {
   opacity: 0;
-  transform: translateY(1.25rem);
+  filter: blur(0.3rem);
+  transform: translateY(2rem);
   transition:
-    opacity 850ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 950ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 950ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 950ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .story-copy {
@@ -260,6 +309,7 @@ button {
 .story-media.is-visible,
 .story-copy.is-visible {
   opacity: 1;
+  filter: blur(0);
   transform: translateY(0);
 }
 
@@ -278,14 +328,17 @@ button {
 
 .collection-item {
   opacity: 0;
-  transform: translateY(1.25rem);
+  filter: blur(0.3rem);
+  transform: translateY(2rem) scale(0.98);
   transition:
-    opacity 850ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 950ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 950ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 950ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .collection-item.is-visible {
   opacity: 1;
+  filter: blur(0);
   transform: translateY(0);
 }
 
@@ -297,14 +350,17 @@ button {
 
 .gallery-item {
   opacity: 0;
-  transform: translateY(1.25rem);
+  filter: blur(0.3rem);
+  transform: translateY(2rem) scale(0.98);
   transition:
-    opacity 850ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 950ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 950ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 950ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .gallery-item.is-visible {
   opacity: 1;
+  filter: blur(0);
   transform: translateY(0);
 }
 
@@ -325,19 +381,26 @@ button {
 .campaign-installation-tablet,
 .campaign-installation-copy {
   opacity: 0;
-  transform: translateY(1.25rem);
+  filter: blur(0.35rem);
   transition:
-    opacity 850ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 1.05s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.05s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.campaign-installation-tablet {
+  transform: translateY(2.75rem) scale(0.92);
 }
 
 .campaign-installation-copy {
+  transform: translateY(2rem);
   transition-delay: 150ms;
 }
 
 .campaign-installation-tablet.is-visible,
 .campaign-installation-copy.is-visible {
   opacity: 1;
+  filter: blur(0);
   transform: translateY(0);
 }
 
@@ -358,6 +421,7 @@ button {
   background: #1a1a1a;
   box-shadow:
     0 2rem 5rem rgb(0 0 0 / 55%),
+    0 0 5rem rgb(236 22 127 / 10%),
     inset 0 0 0 1px rgb(255 255 255 / 7%),
     inset 0 -1px 0 rgb(0 0 0 / 65%);
 }
@@ -497,7 +561,15 @@ button {
 @keyframes hero-reveal {
   from {
     opacity: 0;
-    transform: translateY(1.25rem);
+    filter: blur(0.4rem);
+    transform: translateY(2rem);
+  }
+}
+
+@keyframes header-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
   }
 }
 
@@ -601,6 +673,7 @@ button {
   .campaign-installation-tablet,
   .campaign-installation-copy {
     opacity: 1;
+    filter: none;
     transform: none;
   }
 

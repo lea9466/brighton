@@ -7,10 +7,12 @@ import { FeaturedCollection } from "@/components/sections/FeaturedCollection";
 import { Footer } from "@/components/sections/Footer";
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
     <>
+      <ScrollReveal />
       <Header />
       <main>
         <Hero />

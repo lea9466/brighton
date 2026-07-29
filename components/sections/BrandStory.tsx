@@ -55,7 +55,7 @@ export function BrandStory() {
             isVisible ? "is-visible" : ""
           }`}
         >
-          <p className="text-[0.6rem] font-medium uppercase tracking-[0.34em] text-stone">
+          <p className="text-[0.6rem] font-medium uppercase tracking-[0.34em] text-accent">
             {story.eyebrow}
           </p>
           <h2 className="mt-7 font-display text-[clamp(2.9rem,6vw,5.6rem)] leading-[0.95] tracking-[-0.03em] text-ivory">

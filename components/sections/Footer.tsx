@@ -6,13 +6,19 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-ink">
       <div className="site-shell py-9 sm:py-11">
         <div className="flex flex-col gap-7 sm:flex-row sm:items-center sm:justify-between">
-          <a href="#top" aria-label="Brighton home">
+          <a data-reveal="right" href="#top" aria-label="Brighton home">
             <Logo className="text-lg" />
           </a>
-          <p className="text-[0.56rem] uppercase tracking-[0.18em] text-stone">
+          <p
+            data-reveal
+            data-reveal-delay="1"
+            className="text-[0.56rem] uppercase tracking-[0.18em] text-stone"
+          >
             © {new Date().getFullYear()} {siteContent.footer.copyright}
           </p>
           <a
+            data-reveal="left"
+            data-reveal-delay="2"
             href="#top"
             className="text-[0.56rem] uppercase tracking-[0.18em] text-stone transition-colors hover:text-ivory"
           >

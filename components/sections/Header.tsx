@@ -29,7 +29,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ${
+      className={`header-reveal fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ${
         scrolled || menuOpen
           ? "border-white/8 bg-ink/82 backdrop-blur-lg"
           : "border-transparent bg-transparent"

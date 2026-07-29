@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { siteContent } from "@/data/site-content";
 
 type LogoProps = {
   className?: string;
@@ -6,13 +6,10 @@ type LogoProps = {
 
 export function Logo({ className = "" }: LogoProps) {
   return (
-    <Image
-      src="/images/brighton-logo-white-solid.png"
-      alt="Brighton"
-      width={616}
-      height={335}
-      priority
-      className={`h-auto w-32 sm:w-36 ${className}`}
-    />
+    <span
+      className={`font-display text-xl tracking-[0.34em] text-ivory ${className}`}
+    >
+      {siteContent.brand.name}
+    </span>
   );
 }

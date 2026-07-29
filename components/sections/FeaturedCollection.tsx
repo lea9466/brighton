@@ -37,8 +37,8 @@ export function FeaturedCollection() {
       className="collection-section scroll-mt-20"
     >
       <div className="collection-shell">
-        <div className="mx-auto max-w-[48rem] text-center">
-          <p className="text-[0.6rem] font-medium uppercase tracking-[0.34em] text-[#817b72]">
+        <div data-reveal className="mx-auto max-w-[48rem] text-center">
+          <p className="text-[0.6rem] font-medium uppercase tracking-[0.34em] text-accent">
             {collection.eyebrow}
           </p>
           <h2 className="mt-6 font-display text-[clamp(2.9rem,6vw,5.6rem)] leading-[0.95] tracking-[-0.03em] text-[#1a1a1a]">
