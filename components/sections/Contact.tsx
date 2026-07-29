@@ -6,6 +6,8 @@ import { siteContent } from "@/data/site-content";
 
 type FormErrors = Partial<Record<"name" | "email" | "message", string>>;
 
+const SHOW_CONTACT_FORM = false;
+
 export function Contact() {
   const { contact } = siteContent;
   const [errors, setErrors] = useState<FormErrors>({});
@@ -58,11 +60,13 @@ export function Contact() {
           </div>
         </div>
 
-        <form
-          className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:col-span-6 lg:col-start-7"
-          onSubmit={handleSubmit}
-          noValidate
-        >
+        {/* Contact form is temporarily hidden. */}
+        {SHOW_CONTACT_FORM && (
+          <form
+            className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:col-span-6 lg:col-start-7"
+            onSubmit={handleSubmit}
+            noValidate
+          >
           <FormField
             id="name"
             label={contact.fields.name}
@@ -105,7 +109,8 @@ export function Contact() {
               </p>
             )}
           </div>
-        </form>
+          </form>
+        )}
       </div>
     </section>
   );

@@ -9,6 +9,7 @@ export function EditorialFeature() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -49,12 +50,23 @@ export function EditorialFeature() {
     return () => motionPreference.removeEventListener("change", updatePlayback);
   }, []);
 
+  const togglePlayback = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      void video.play().catch(() => undefined);
+    } else {
+      video.pause();
+    }
+  };
+
   return (
     <section
       ref={sectionRef}
       className="campaign-installation"
     >
-      <div className="campaign-installation-shell grid items-center gap-20 lg:grid-cols-12 lg:gap-14">
+      <div className="campaign-installation-shell grid items-center gap-0 lg:grid-cols-12 lg:gap-14">
         <div
           className={`campaign-installation-tablet order-1 flex justify-center lg:order-2 lg:col-span-7 lg:justify-end ${
             isVisible ? "is-visible" : ""
@@ -76,12 +88,34 @@ export function EditorialFeature() {
                   poster={editorialFeature.image.src}
                   aria-hidden="true"
                   onCanPlay={() => setVideoReady(true)}
+                  onPlay={() => setIsPaused(false)}
+                  onPause={() => setIsPaused(true)}
                 >
                   <source
                     src={editorialFeature.video.src}
                     type={editorialFeature.video.type}
                   />
                 </video>
+                <button
+                  type="button"
+                  className="campaign-video-control"
+                  onClick={togglePlayback}
+                  aria-label={
+                    isPaused
+                      ? "Play campaign video"
+                      : "Pause campaign video"
+                  }
+                  aria-pressed={isPaused}
+                >
+                  <span
+                    className={
+                      isPaused
+                        ? "campaign-video-play-icon"
+                        : "campaign-video-stop-icon"
+                    }
+                    aria-hidden="true"
+                  />
+                </button>
               </div>
               <span className="campaign-tablet-camera" aria-hidden="true" />
               <span
@@ -92,13 +126,25 @@ export function EditorialFeature() {
                 className="campaign-tablet-speaker campaign-tablet-speaker-right"
                 aria-hidden="true"
               />
+              <span
+                className="campaign-tablet-button campaign-tablet-button-power"
+                aria-hidden="true"
+              />
+              <span
+                className="campaign-tablet-button campaign-tablet-button-volume-up"
+                aria-hidden="true"
+              />
+              <span
+                className="campaign-tablet-button campaign-tablet-button-volume-down"
+                aria-hidden="true"
+              />
             </div>
             <span className="campaign-tablet-reflection" aria-hidden="true" />
           </div>
         </div>
 
         <div
-          className={`campaign-installation-copy order-2 mt-14 text-center sm:mt-16 lg:order-1 lg:col-span-5 lg:mt-0 lg:text-left ${
+          className={`campaign-installation-copy order-2 mt-8 text-center sm:mt-10 lg:order-1 lg:col-span-5 lg:mt-0 lg:text-left ${
             isVisible ? "is-visible" : ""
           }`}
         >
