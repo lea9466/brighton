@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { siteContent } from "@/data/site-content";
 
-export function Header() {
+export function Header({ solid = false }: { solid?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -30,13 +30,13 @@ export function Header() {
   return (
     <header
       className={`header-reveal fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ${
-        scrolled || menuOpen
+        scrolled || menuOpen || solid
           ? "border-white/8 bg-ink/82 backdrop-blur-lg"
           : "border-transparent bg-transparent"
       }`}
     >
       <div className="site-shell flex h-20 items-center justify-between lg:h-[5.5rem]">
-        <a href="#top" aria-label="Brighton home" onClick={() => setMenuOpen(false)}>
+        <a href="/" aria-label="Brighton home" onClick={() => setMenuOpen(false)}>
           <Logo />
         </a>
 

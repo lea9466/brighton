@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-ink">
       <div className="site-shell py-9 sm:py-11">
         <div className="flex flex-col gap-7 sm:flex-row sm:items-center sm:justify-between">
-          <a data-reveal="right" href="#top" aria-label="Brighton home">
+          <a data-reveal="right" href="/" aria-label="Brighton home">
             <Logo className="text-lg" />
           </a>
           <p

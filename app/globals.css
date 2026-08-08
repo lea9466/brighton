@@ -321,7 +321,7 @@ button {
 }
 
 .hero-overlay {
-  background: rgb(0 0 0 / 30%);
+  background: rgb(0 0 0 / 12%);
 }
 
 .hero-cta {
@@ -355,6 +355,75 @@ button {
   padding-block: clamp(8rem, 13vw, 12rem);
   color: var(--ivory);
   background: var(--charcoal);
+}
+
+.about-section {
+  overflow: hidden;
+  padding-block: clamp(5.5rem, 10vw, 9rem) clamp(7rem, 12vw, 11rem);
+  color: var(--ivory);
+  background: var(--charcoal);
+}
+
+.about-shell {
+  width: min(100% - 2.5rem, 52rem);
+  margin-inline: auto;
+}
+
+.about-media {
+  display: grid;
+  width: min(100%, 36rem);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr);
+  align-items: stretch;
+  gap: 0.85rem;
+}
+
+.about-portrait,
+.about-landscape {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0.35rem;
+}
+
+.about-portrait {
+  height: 100%;
+}
+
+.about-portrait-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-landscapes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.about-landscape {
+  aspect-ratio: 3 / 2;
+}
+
+.about-landscape-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(1.12) contrast(1.03);
+}
+
+@media (max-width: 640px) {
+  .about-media {
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .about-landscapes {
+    gap: 0.65rem;
+  }
 }
 
 .story-shell {
@@ -419,6 +488,43 @@ button {
   background: var(--charcoal);
 }
 
+.gallery-masonry {
+  display: grid;
+  align-items: start;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .gallery-masonry {
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-masonry {
+    gap: 2.5rem;
+  }
+}
+
+.gallery-masonry-column {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .gallery-masonry-column {
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-masonry-column {
+    gap: 2.5rem;
+  }
+}
+
 .gallery-item {
   opacity: 0;
   filter: blur(0.3rem);
@@ -433,6 +539,97 @@ button {
   opacity: 1;
   filter: blur(0);
   transform: translateY(0);
+}
+
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgb(0 0 0 / 88%);
+  backdrop-filter: blur(0.4rem);
+  animation: gallery-lightbox-in 220ms ease-out;
+}
+
+.gallery-lightbox-stage {
+  display: grid;
+  max-width: min(96vw, 88rem);
+  max-height: calc(100svh - 2.5rem);
+  place-items: center;
+}
+
+.gallery-lightbox-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(96vw, 88rem);
+  max-height: calc(100svh - 2.5rem);
+  object-fit: contain;
+  border-radius: 0.35rem;
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 45%);
+}
+
+.gallery-lightbox-close,
+.gallery-lightbox-nav {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  border: 0;
+  color: var(--ivory);
+  background: rgb(255 255 255 / 8%);
+  cursor: pointer;
+  transition:
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.gallery-lightbox-close:hover,
+.gallery-lightbox-nav:hover,
+.gallery-lightbox-close:focus-visible,
+.gallery-lightbox-nav:focus-visible {
+  background: rgb(255 255 255 / 16%);
+  outline: none;
+}
+
+.gallery-lightbox-close {
+  top: 1rem;
+  right: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.gallery-lightbox-nav {
+  top: 50%;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  font-size: 2rem;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.gallery-lightbox-prev {
+  left: 0.75rem;
+}
+
+.gallery-lightbox-next {
+  right: 0.75rem;
+}
+
+@keyframes gallery-lightbox-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .campaign-installation {
@@ -716,7 +913,7 @@ button {
   }
 
   .hero-overlay {
-    background: rgb(0 0 0 / 35%);
+    background: rgb(0 0 0 / 16%);
   }
 
   .story-section {

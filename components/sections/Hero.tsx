@@ -1,8 +1,10 @@
 import { BackgroundVideo } from "@/components/BackgroundVideo";
 import { siteContent } from "@/data/site-content";
+import { resolveHeroVideos } from "@/lib/campaign-video";
 
 export function Hero() {
   const { hero } = siteContent;
+  const videos = resolveHeroVideos(hero.videos);
 
   return (
     <section
@@ -11,7 +13,7 @@ export function Hero() {
       className="relative flex min-h-[100svh] items-end overflow-hidden bg-ink"
     >
       <BackgroundVideo
-        sources={hero.videos}
+        sources={videos}
         playbackRate={hero.videoPlaybackRate}
       />
       <div className="hero-overlay absolute inset-0" />
@@ -22,7 +24,7 @@ export function Hero() {
             {hero.tagline}
           </h1>
           <a
-            href="#collection"
+            href="/#collection"
             data-magnetic
             className="hero-cta hero-reveal hero-delay-cta mt-7 sm:mt-8"
           >

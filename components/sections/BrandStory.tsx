@@ -82,6 +82,16 @@ export function BrandStory() {
               </p>
             ))}
           </div>
+          <a
+            href={story.ctaHref}
+            data-reveal
+            data-reveal-delay={story.paragraphs.length + 2}
+            data-magnetic
+            className="text-link mt-10"
+          >
+            {story.cta}
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>

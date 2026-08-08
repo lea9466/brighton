@@ -2,9 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import { siteContent } from "@/data/site-content";
+import type { VideoSource } from "@/lib/campaign-video";
 
-export function EditorialFeature() {
+type EditorialFeatureProps = {
+  video?: VideoSource;
+};
+
+export function EditorialFeature({ video }: EditorialFeatureProps) {
   const { editorialFeature } = siteContent;
+  const videoSource = video ?? editorialFeature.video;
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -92,8 +98,8 @@ export function EditorialFeature() {
                   onPause={() => setIsPaused(true)}
                 >
                   <source
-                    src={editorialFeature.video.src}
-                    type={editorialFeature.video.type}
+                    src={videoSource.src}
+                    type={videoSource.type}
                   />
                 </video>
                 <button

@@ -9,8 +9,12 @@ import { Footer } from "@/components/sections/Footer";
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { siteContent } from "@/data/site-content";
+import { resolveTabletVideo } from "@/lib/campaign-video";
 
 export default function Home() {
+  const tabletVideo = resolveTabletVideo(siteContent.editorialFeature.video);
+
   return (
     <>
       <BrandIntro />
@@ -20,7 +24,7 @@ export default function Home() {
         <Hero />
         <BrandStory />
         <FeaturedCollection />
-        <EditorialFeature />
+        <EditorialFeature video={tabletVideo} />
         <EditorialGallery />
         <BrandStatement />
         <Contact />
