@@ -2,12 +2,13 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 
 /**
- * Drop-in campaign video override.
- *
- * Place your ~10s MP4 here to replace the hero loop and the tablet video:
+ * Drop-in campaign video override for the hero loop:
  *   public/videos/brighton-campaign.mp4
  *
- * Filename must be exact. If the file is missing, the site keeps the current videos.
+ * Tablet video is separate:
+ *   public/videos/brighton-tablet.mp4
+ *
+ * Filename must be exact. If the campaign file is missing, the site keeps the current hero videos.
  */
 export const CAMPAIGN_VIDEO_FILENAME = "brighton-campaign.mp4";
 export const CAMPAIGN_VIDEO_PUBLIC_PATH = `/videos/${CAMPAIGN_VIDEO_FILENAME}`;
@@ -46,5 +47,5 @@ export function resolveHeroVideos(
 }
 
 export function resolveTabletVideo(fallback: VideoSource): VideoSource {
-  return getCampaignVideoOverride() ?? fallback;
+  return fallback;
 }
