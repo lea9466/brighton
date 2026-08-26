@@ -35,7 +35,13 @@ export default function AboutPage() {
 
         <section className="about-section">
           <div className="about-shell">
-            <div className="about-media" data-reveal>
+            <p
+              data-reveal
+              className="text-[0.6rem] font-medium uppercase tracking-[0.34em] text-accent"
+            >
+              {about.mediaEyebrow}
+            </p>
+            <div className="about-media mt-6" data-reveal>
               <figure className="about-portrait">
                 <Image
                   src={about.portraitImage.src}
