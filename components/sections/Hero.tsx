@@ -15,6 +15,7 @@ export function Hero() {
       <BackgroundVideo
         sources={videos}
         playbackRate={hero.videoPlaybackRate}
+        poster={hero.image.src}
       />
       <div className="hero-overlay absolute inset-0" />
 

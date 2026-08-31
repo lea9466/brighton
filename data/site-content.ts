@@ -76,6 +76,7 @@ export const siteContent = {
     video: {
       src: "/videos/brighton-tablet.mp4",
       type: "video/mp4",
+      webmSrc: "/videos/brighton-tablet.webm",
     },
     image: {
       src: "/images/editorial-wide.png",

@@ -8,11 +8,13 @@ type BackgroundVideoProps = {
     type: string;
   }[];
   playbackRate?: number;
+  poster?: string;
 };
 
 export function BackgroundVideo({
   sources,
   playbackRate = 1,
+  poster,
 }: BackgroundVideoProps) {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const switchingRef = useRef(false);
@@ -89,6 +91,7 @@ export function BackgroundVideo({
           muted
           playsInline
           preload="auto"
+          poster={poster}
           aria-hidden="true"
           onEnded={() => {
             if (index === activeSource) void playNext();

@@ -98,6 +98,10 @@ export function EditorialFeature({ video }: EditorialFeatureProps) {
                   onPause={() => setIsPaused(true)}
                 >
                   <source
+                    src={editorialFeature.video.webmSrc}
+                    type="video/webm"
+                  />
+                  <source
                     src={videoSource.src}
                     type={videoSource.type}
                   />
