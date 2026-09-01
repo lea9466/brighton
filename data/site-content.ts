@@ -11,6 +11,14 @@ export const siteContent = {
   brand: {
     name: "BRIGHTON",
   },
+  // TEMP: campaign videos are paused. The hero and the tablet render their
+  // poster stills instead of playing video. Flip a flag back to `true` to
+  // restore playback (wiring lives in components/sections/Hero.tsx and
+  // components/sections/EditorialFeature.tsx).
+  media: {
+    heroVideo: false,
+    tabletVideo: false,
+  },
   navigation: [
     { label: "About", href: "/about" },
     { label: "Story", href: "/#story" },

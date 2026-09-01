@@ -1,9 +1,10 @@
+import Image from "next/image";
 import { BackgroundVideo } from "@/components/BackgroundVideo";
 import { siteContent } from "@/data/site-content";
 import { resolveHeroVideos } from "@/lib/campaign-video";
 
 export function Hero() {
-  const { hero } = siteContent;
+  const { hero, media } = siteContent;
   const videos = resolveHeroVideos(hero.videos);
 
   return (
@@ -12,11 +13,27 @@ export function Hero() {
       data-hero-parallax
       className="relative flex min-h-[100svh] items-end overflow-hidden bg-ink"
     >
-      <BackgroundVideo
-        sources={videos}
-        playbackRate={hero.videoPlaybackRate}
-        poster={hero.image.src}
-      />
+      {media.heroVideo ? (
+        <BackgroundVideo
+          sources={videos}
+          playbackRate={hero.videoPlaybackRate}
+          poster={hero.image.src}
+        />
+      ) : (
+        <div
+          data-hero-depth="5"
+          className="hero-parallax-media absolute -inset-2 bg-ink"
+        >
+          <Image
+            src={hero.image.src}
+            alt=""
+            fill
+            preload
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
+      )}
       <div className="hero-overlay absolute inset-0" />
 
       <div className="site-shell relative z-10 pb-4 pt-32 sm:pb-5 lg:pb-6">

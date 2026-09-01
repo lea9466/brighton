@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { siteContent } from "@/data/site-content";
 import type { VideoSource } from "@/lib/campaign-video";
@@ -9,7 +10,7 @@ type EditorialFeatureProps = {
 };
 
 export function EditorialFeature({ video }: EditorialFeatureProps) {
-  const { editorialFeature } = siteContent;
+  const { editorialFeature, media } = siteContent;
   const videoSource = video ?? editorialFeature.video;
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -81,51 +82,63 @@ export function EditorialFeature({ video }: EditorialFeatureProps) {
           <div className="campaign-tablet-float">
             <div className="campaign-tablet">
               <div className="campaign-tablet-screen">
-                <video
-                  ref={videoRef}
-                  className={`h-full w-full object-contain object-center transition-opacity duration-1000 ease-out ${
-                    videoReady ? "opacity-100" : "opacity-0"
-                  }`}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  poster={editorialFeature.image.src}
-                  aria-hidden="true"
-                  onCanPlay={() => setVideoReady(true)}
-                  onPlay={() => setIsPaused(false)}
-                  onPause={() => setIsPaused(true)}
-                >
-                  <source
-                    src={editorialFeature.video.webmSrc}
-                    type="video/webm"
+                {media.tabletVideo ? (
+                  <>
+                    <video
+                      ref={videoRef}
+                      className={`h-full w-full object-contain object-center transition-opacity duration-1000 ease-out ${
+                        videoReady ? "opacity-100" : "opacity-0"
+                      }`}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      poster={editorialFeature.image.src}
+                      aria-hidden="true"
+                      onCanPlay={() => setVideoReady(true)}
+                      onPlay={() => setIsPaused(false)}
+                      onPause={() => setIsPaused(true)}
+                    >
+                      <source
+                        src={editorialFeature.video.webmSrc}
+                        type="video/webm"
+                      />
+                      <source
+                        src={videoSource.src}
+                        type={videoSource.type}
+                      />
+                    </video>
+                    <button
+                      type="button"
+                      className="campaign-video-control"
+                      onClick={togglePlayback}
+                      aria-label={
+                        isPaused
+                          ? "Play campaign video"
+                          : "Pause campaign video"
+                      }
+                      aria-pressed={isPaused}
+                    >
+                      <span
+                        className={
+                          isPaused
+                            ? "campaign-video-play-icon"
+                            : "campaign-video-stop-icon"
+                        }
+                        aria-hidden="true"
+                      />
+                    </button>
+                  </>
+                ) : (
+                  <Image
+                    src={editorialFeature.image.src}
+                    alt=""
+                    fill
+                    sizes="(max-width: 720px) calc(100vw - 2.5rem), 42rem"
+                    className="object-contain object-center"
                   />
-                  <source
-                    src={videoSource.src}
-                    type={videoSource.type}
-                  />
-                </video>
-                <button
-                  type="button"
-                  className="campaign-video-control"
-                  onClick={togglePlayback}
-                  aria-label={
-                    isPaused
-                      ? "Play campaign video"
-                      : "Pause campaign video"
-                  }
-                  aria-pressed={isPaused}
-                >
-                  <span
-                    className={
-                      isPaused
-                        ? "campaign-video-play-icon"
-                        : "campaign-video-stop-icon"
-                    }
-                    aria-hidden="true"
-                  />
-                </button>
+                )}
               </div>
               <span className="campaign-tablet-camera" aria-hidden="true" />
               <span
