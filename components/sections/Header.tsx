@@ -37,7 +37,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
     >
       <div className="site-shell flex h-20 items-center justify-between lg:h-[5.5rem]">
         <a href="/" aria-label="Brighton home" onClick={() => setMenuOpen(false)}>
-          <Logo />
+          <Logo mark={false} />
         </a>
 
         <nav className="hidden items-center gap-10 md:flex" aria-label="Main navigation">

@@ -15,7 +15,8 @@ export const SITE_URL = "https://brighton-style.com";
  * "HTML tag" method → copy the `content` value of the meta tag here.
  * Leave empty and no verification tag is emitted.
  */
-export const GOOGLE_SITE_VERIFICATION = "";
+export const GOOGLE_SITE_VERIFICATION =
+  "3nVMMCNUaVB8OnePhSyFfFcZzMH1DesdN6jYa1XTeUM";
 
 /** Resolve a site-relative path to an absolute URL on {@link SITE_URL}. */
 export function absoluteUrl(path = "/"): string {
