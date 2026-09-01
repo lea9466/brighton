@@ -133,10 +133,10 @@ export const siteContent = {
     ],
     closing: "BRIGHTON. Wear the World.",
     portraitImage: {
-      src: "/images/about-storefront.png",
-      alt: "The BRIGHTON boutique storefront with a brass crown crest below the sign and handbags displayed in the window",
-      width: 844,
-      height: 1264,
+      src: "/images/brighton-store.png",
+      alt: "Brighton black tote bag in a sunlit interior overlooking the sea",
+      width: 896,
+      height: 1195,
     },
     landscapeImages: [
       {
