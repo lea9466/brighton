@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 type BackgroundVideoProps = {
@@ -18,9 +19,13 @@ export function BackgroundVideo({
 }: BackgroundVideoProps) {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const switchingRef = useRef(false);
+  const failedSourcesRef = useRef<Set<number>>(new Set());
   const [activeSource, setActiveSource] = useState(0);
+  const [allSourcesFailed, setAllSourcesFailed] = useState(false);
 
   useEffect(() => {
+    if (allSourcesFailed) return;
+
     const motionPreference = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     );
@@ -46,7 +51,7 @@ export function BackgroundVideo({
     return () => {
       motionPreference.removeEventListener("change", updatePlayback);
     };
-  }, [activeSource, playbackRate]);
+  }, [activeSource, playbackRate, allSourcesFailed]);
 
   const playNext = async () => {
     if (switchingRef.current) return;
@@ -73,6 +78,39 @@ export function BackgroundVideo({
     }
   };
 
+  const handleError = (index: number) => {
+    failedSourcesRef.current.add(index);
+
+    if (failedSourcesRef.current.size >= sources.length) {
+      setAllSourcesFailed(true);
+      return;
+    }
+
+    if (index === activeSource) {
+      void playNext();
+    }
+  };
+
+  if (allSourcesFailed) {
+    return (
+      <div
+        data-hero-depth="5"
+        className="hero-parallax-media absolute -inset-2 bg-ink"
+      >
+        {poster ? (
+          <Image
+            src={poster}
+            alt=""
+            fill
+            preload
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        ) : null}
+      </div>
+    );
+  }
+
   return (
     <div
       data-hero-depth="5"
@@ -96,6 +134,7 @@ export function BackgroundVideo({
           onEnded={() => {
             if (index === activeSource) void playNext();
           }}
+          onError={() => handleError(index)}
         >
           <source src={source.src} type={source.type} />
         </video>

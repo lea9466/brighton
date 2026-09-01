@@ -39,6 +39,7 @@ export function Hero() {
       <div className="site-shell relative z-10 pb-4 pt-32 sm:pb-5 lg:pb-6">
         <div data-hero-depth="-2" className="max-w-[46rem]">
           <h1 className="hero-reveal max-w-[44rem] font-display text-[clamp(2.8rem,6.9vw,6.3rem)] leading-[0.92] tracking-[-0.03em] text-ivory">
+            <span className="sr-only">{siteContent.brand.name} — </span>
             {hero.tagline}
           </h1>
           <a

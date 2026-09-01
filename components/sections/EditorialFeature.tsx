@@ -17,6 +17,8 @@ export function EditorialFeature({ video }: EditorialFeatureProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
+  const showVideo = media.tabletVideo && !videoFailed;
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -82,7 +84,7 @@ export function EditorialFeature({ video }: EditorialFeatureProps) {
           <div className="campaign-tablet-float">
             <div className="campaign-tablet">
               <div className="campaign-tablet-screen">
-                {media.tabletVideo ? (
+                {showVideo ? (
                   <>
                     <video
                       ref={videoRef}
@@ -99,6 +101,7 @@ export function EditorialFeature({ video }: EditorialFeatureProps) {
                       onCanPlay={() => setVideoReady(true)}
                       onPlay={() => setIsPaused(false)}
                       onPause={() => setIsPaused(true)}
+                      onError={() => setVideoFailed(true)}
                     >
                       <source
                         src={editorialFeature.video.webmSrc}

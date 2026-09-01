@@ -5,7 +5,13 @@ export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-ink">
       <div className="site-shell py-9 sm:py-11">
-        <div className="flex flex-col gap-7 sm:flex-row sm:items-center sm:justify-between">
+        <p
+          data-reveal
+          className="max-w-2xl text-[0.72rem] leading-6 text-stone"
+        >
+          {siteContent.footer.description}
+        </p>
+        <div className="mt-9 flex flex-col gap-7 sm:mt-11 sm:flex-row sm:items-center sm:justify-between">
           <a data-reveal="right" href="/" aria-label="Brighton home">
             <Logo className="text-lg" />
           </a>

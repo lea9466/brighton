@@ -11,13 +11,14 @@ export const siteContent = {
   brand: {
     name: "BRIGHTON",
   },
-  // TEMP: campaign videos are paused. The hero and the tablet render their
-  // poster stills instead of playing video. Flip a flag back to `true` to
-  // restore playback (wiring lives in components/sections/Hero.tsx and
-  // components/sections/EditorialFeature.tsx).
+  // The hero and the tablet play video by default. If a video fails to load
+  // (blocked on the network, offline, etc.) each component falls back to its
+  // poster still automatically — see components/sections/Hero.tsx,
+  // components/BackgroundVideo.tsx and components/sections/EditorialFeature.tsx.
+  // Set a flag to `false` to force the still image regardless of video status.
   media: {
-    heroVideo: false,
-    tabletVideo: false,
+    heroVideo: true,
+    tabletVideo: true,
   },
   navigation: [
     { label: "About", href: "/about" },
@@ -97,8 +98,9 @@ export const siteContent = {
     eyebrow: "Our Story",
     title: "Designed for Everyday Elegance.",
     paragraphs: [
-      "Inspired by the character of Brighton, England, BRIGHTON brings a distinctly international perspective to modern style.",
-      "Each piece balances considered detail, confident form and an effortless sense of ease.",
+      "Inspired by the character of Brighton, England — a coastal city where heritage meets a restless creative energy — BRIGHTON brings a distinctly international perspective to modern style.",
+      "The house designs handbags and ready-to-wear for everyday life: signature totes, bucket bags and shoulder bags, each balancing considered detail, confident form and an effortless sense of ease.",
+      "It is fashion approached as an international language — global chic made to be worn on the most ordinary of days, anywhere in the world.",
     ],
     cta: "Continue Reading",
     ctaHref: "/about",
@@ -131,10 +133,10 @@ export const siteContent = {
     ],
     closing: "BRIGHTON. Wear the World.",
     portraitImage: {
-      src: "/images/brighton-store.png",
-      alt: "Brighton black tote bag in a sunlit interior overlooking the sea",
-      width: 896,
-      height: 1195,
+      src: "/images/about-storefront.png",
+      alt: "The BRIGHTON boutique storefront with a brass crown crest below the sign and handbags displayed in the window",
+      width: 844,
+      height: 1264,
     },
     landscapeImages: [
       {
@@ -150,10 +152,47 @@ export const siteContent = {
         height: 1086,
       },
     ],
+    faqEyebrow: "Good to Know",
+    faqTitle: "Frequently Asked Questions",
+    faq: [
+      {
+        question: "Where is BRIGHTON from?",
+        answer:
+          "BRIGHTON is an international fashion house whose sensibility is rooted in the character of Brighton, England — a coastal city known for pairing heritage with a modern creative energy. The brand brings that outlook to designer handbags and ready-to-wear made for everyday life anywhere in the world.",
+      },
+      {
+        question: "What does BRIGHTON make?",
+        answer:
+          "BRIGHTON designs handbags — signature totes, bucket bags, shoulder bags and crossbody styles — alongside a considered ready-to-wear and accessories offering. Every piece balances refined detail, confident form and an easy, wearable elegance.",
+      },
+      {
+        question: "What does 'Wear the World' mean?",
+        answer:
+          "'Wear the World' is the BRIGHTON philosophy: style as an international language. It is an invitation to carry a sense of global chic into an ordinary day, wherever you are.",
+      },
+      {
+        question: "Is BRIGHTON a luxury brand?",
+        answer:
+          "BRIGHTON is a premium fashion house. The focus is on quality materials, elevated design and the small details that define a luxury piece — not on logos or fast trends.",
+      },
+      {
+        question: "How can I contact BRIGHTON?",
+        answer:
+          "For collaborations, retail and brand enquiries, write to hello@brighton-style.com or reach the brand on Instagram. New collections and stockists are announced through BRIGHTON's own channels.",
+      },
+    ],
     seo: {
       title: "About BRIGHTON — Global Chic, Every Day",
       description:
-        "Discover the world of BRIGHTON — an international fashion brand shaped by global design, refined details and everyday elegance.",
+        "Discover the world of BRIGHTON — an international fashion house of designer handbags and ready-to-wear shaped by global design, refined details and everyday elegance.",
+      keywords: [
+        "about BRIGHTON",
+        "BRIGHTON fashion brand",
+        "luxury fashion house",
+        "designer handbags brand",
+        "international fashion",
+        "brand story",
+      ],
     },
   },
   gallery: {
@@ -233,16 +272,41 @@ export const siteContent = {
     success: "Thank you. Your message is ready to be sent.",
     socialLinks: [
       { label: "Instagram", href: "https://instagram.com/" },
-      { label: "Email", href: "mailto:hello@brighton-fashion.com" },
+      { label: "Email", href: "mailto:hello@brighton-style.com" },
     ],
   },
   footer: {
+    description:
+      "BRIGHTON is an international fashion house of designer handbags and ready-to-wear — modern design, refined details and everyday elegance.",
     copyright: "BRIGHTON. All rights reserved.",
     backToTop: "Back to top",
   },
   seo: {
     title: "BRIGHTON — Wear the World",
+    titleTemplate: "%s — BRIGHTON",
     description:
-      "BRIGHTON is an international fashion brand shaped by modern design, refined details and effortless elegance.",
+      "BRIGHTON is an international fashion house of designer handbags and ready-to-wear — totes, bucket and shoulder bags shaped by modern design and effortless everyday elegance.",
+    keywords: [
+      "BRIGHTON",
+      "Brighton fashion",
+      "Brighton fashion house",
+      "Brighton Wear the World",
+      "Brighton designer bags",
+      "luxury fashion brand",
+      "designer handbags",
+      "luxury handbags",
+      "designer tote bag",
+      "bucket bag",
+      "shoulder bag",
+      "crossbody bag",
+      "ready-to-wear",
+      "international fashion house",
+      "premium accessories",
+      "wear the world",
+      "בריטון",
+      "בריטון אופנה",
+      "מותג בריטון",
+      "בריטון תיקים",
+    ],
   },
 } as const;

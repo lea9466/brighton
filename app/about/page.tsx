@@ -1,25 +1,30 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { JsonLd } from "@/components/JsonLd";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { Faq } from "@/components/sections/Faq";
 import { Footer } from "@/components/sections/Footer";
 import { Header } from "@/components/sections/Header";
 import { siteContent } from "@/data/site-content";
+import { aboutPageSchema, breadcrumbSchema, faqSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: siteContent.about.seo.title,
+  title: { absolute: siteContent.about.seo.title },
   description: siteContent.about.seo.description,
+  keywords: [...siteContent.about.seo.keywords],
+  alternates: { canonical: "/about" },
   openGraph: {
+    type: "website",
+    siteName: siteContent.brand.name,
     title: siteContent.about.seo.title,
     description: siteContent.about.seo.description,
-    type: "website",
-    images: [
-      {
-        url: siteContent.about.portraitImage.src,
-        width: siteContent.about.portraitImage.width,
-        height: siteContent.about.portraitImage.height,
-        alt: siteContent.about.portraitImage.alt,
-      },
-    ],
+    url: "/about",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteContent.about.seo.title,
+    description: siteContent.about.seo.description,
   },
 };
 
@@ -28,6 +33,16 @@ export default function AboutPage() {
 
   return (
     <>
+      <JsonLd
+        data={[
+          aboutPageSchema(),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+          ]),
+          faqSchema(about.faq),
+        ]}
+      />
       <ScrollReveal />
       <Header solid />
       <main id="top">
@@ -118,6 +133,8 @@ export default function AboutPage() {
             >
               {about.closing}
             </p>
+
+            <Faq />
           </div>
         </section>
       </main>
